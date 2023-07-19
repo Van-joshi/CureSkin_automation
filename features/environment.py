@@ -16,14 +16,14 @@ def browser_init(context):
     context.driver = webdriver.Firefox(executable_path='./geckodriver.exe')
 
     # Headless mode
-    #driver_path = ChromeDriverManager().install()
-    #service = Service(driver_path)
-    #options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')
-    #context.driver = webdriver.Chrome(
-       #chrome_options=options,
-       # service=service
-    #)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    context.driver = webdriver.Chrome(
+       chrome_options=options,
+        service=service
+    )
 
     # context.driver.maximize_window()
 
