@@ -9,13 +9,14 @@ from selenium.common.exceptions import TimeoutException
 
 @given('Open CureSkin url')
 def open_url(context):
-    #context.driver.get("https://cureskin.com/")
-    context.app.MainPage.open_url()
+    # context.driver.get("https://cureskin.com/")
+    context.app.main_page.open_main_page()
+
 
 
 @when('CureSkin url is open')
 def main_page_loads(context):
-    #context.driver.wait.until(EC.url_contains('cureskin.com'))
-    context.app.MainPage.main_page_loads()
+    context.driver.wait.until(EC.url_contains('cureskin.com'))
+
 
 

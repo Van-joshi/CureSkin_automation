@@ -10,11 +10,22 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+    context.driver = webdriver.Firefox(executable_path='./geckodriver.exe')
 
-    context.driver.maximize_window()
+    # Headless mode
+    #driver_path = ChromeDriverManager().install()
+    #service = Service(driver_path)
+    #options = webdriver.ChromeOptions()
+    #options.add_argument('--headless')
+    #context.driver = webdriver.Chrome(
+       #chrome_options=options,
+       # service=service
+    #)
+
+    # context.driver.maximize_window()
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
@@ -23,15 +34,15 @@ def browser_init(context):
 
 
 def before_scenario(context, scenario):
-    print('\nStarted scenario: ', scenario.name)
+    # print('\nStarted scenario: ', scenario.name)
     browser_init(context)
     # print('\nStarted scenario: ', scenario.name)
     logger.info(f'Started scenario: {scenario.name}')
-    browser_init(context)
+
 
 
 def before_step(context, step):
-    print('\nStarted step: ', step)
+    # print('\nStarted step: ', step)
     # print('\nStarted step: ', step)
     logger.info(f'Started step: {step}')
 
@@ -39,7 +50,7 @@ def before_step(context, step):
 def after_step(context, step):
     if step.status == 'failed':
         logger.error(f'Step failed: {step}')
-        print('\nStep failed: ', step)
+        # print('\nStep failed: ', step)
         # Mark test case as FAILED on BrowserStack:
         # Documentation: https://www.browserstack.com/docs/automate/selenium/view-test-results/mark-tests-as-pass-fail
         # context.driver.execute_script(
