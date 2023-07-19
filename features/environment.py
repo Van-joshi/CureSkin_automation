@@ -10,10 +10,10 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-    #context.driver = webdriver.Firefox(executable_path='./geckodriver.exe')
+    #driver_path = ChromeDriverManager().install()
+    #service = Service(driver_path)
+    #context.driver = webdriver.Chrome(service=service)
+    context.driver = webdriver.Firefox(executable_path='./geckodriver.exe')
 
     # Headless mode
     #driver_path = ChromeDriverManager().install()
