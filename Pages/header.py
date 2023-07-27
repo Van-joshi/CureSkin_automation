@@ -37,7 +37,7 @@ class Header(Page):
 
 
     def testimonials_link(self):
-        self.click_on_testimonials(*self.TESTIMONIALS)
+        self.driver.find_element(*self.TESTIMONIALS)
 
 
     def skinAndHair_link(self):

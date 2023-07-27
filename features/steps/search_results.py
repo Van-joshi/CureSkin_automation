@@ -12,7 +12,8 @@ TEXT_BOX = (By.ID,"Search-In-Template")
 @given('Cureskin Search page is open')
 def open_main_page(context):
     #context.driver.get('https://shop.cureskin.com/search')
-    context.app.search_results.open_shop_page()
+    context.app.search_results.open_main_page()
+
 
 
 @when('{search_word} is entered in textbox')
